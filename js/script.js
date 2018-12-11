@@ -6,7 +6,7 @@ $(document).ready(function () {
         
         $.ajax({
             type:"GET",
-            url:"https://app.ticketmaster.com/discovery/v2/events.json?size=1&apikey=n3CEf5CvEDPHCiKWf9blSDSGfqmglhsS&city=" + city,
+            url:"https://app.ticketmaster.com/discovery/v2/events.json?size=100&apikey=n3CEf5CvEDPHCiKWf9blSDSGfqmglhsS&city=" + city,
             async:true,
             dataType: "json",
             success: function(json) {
