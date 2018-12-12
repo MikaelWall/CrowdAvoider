@@ -1,14 +1,17 @@
 package se.crowdAvoider.crowdAvoider.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping
 public class EventController {
 
     @PostMapping("/result")
-    public String updateEventDB
+    @ResponseBody
+    public String updateEventDB(@RequestBody String jsonobj){
+        System.out.println("Det här är objektet");
+        System.out.println(jsonobj);
+        return "index";
+    }
 
 }

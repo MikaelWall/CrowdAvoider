@@ -3,12 +3,12 @@ $(document).ready(function () {
                 $(".readyBtn").click(function () {
 
                     var city = $("#cityselect option:selected").text();
-                    console.log(city);
+                    
 
                     var date = $(".datumSelect").val();
-                    console.log(date);
+                   
 
-                    var eventList;
+                    
 
                     $.ajax({
                         type: "GET",
@@ -17,7 +17,7 @@ $(document).ready(function () {
                         dataType: "json",
                         success: function (json) {
                             console.log(json);
-
+                            let eventList;
                             for (let i = 0; i < (json._embedded.events).length; i++) {
 
                                 if (date == (json._embedded.events[i].dates.start.localDate)) {
@@ -25,8 +25,10 @@ $(document).ready(function () {
                                     eventList.push(json._embedded.events[i]);
                                     
                                 }
-                            }
                             
+                            }
+                            console.log("Det här är eventList");
+                            console.log(eventList);
                             $.post("/result", JSON.stringify(eventList), function(){console.log("Hej")})
 
                         },
