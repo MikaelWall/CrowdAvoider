@@ -1,14 +1,25 @@
 package se.crowdAvoider.crowdAvoider.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table
+@Table(name = "EVENT")
 public class Event {
+    @Id
+    @GeneratedValue
+    @Column(name = "EVENT_ID")
+    private int eventID;
+
+    @Column(name = "NAME")
     private String name;
+
+    @Column(name = "VENUE")
     private String venue;
+
+    @Column(name = "ADRESS")
     private String adress;
+
+    @Column(name = "EVENT_DATE")
     private String date;
 
     public Event(String name, String venue, String adress, String date) {
