@@ -7,6 +7,6 @@ import se.crowdAvoider.crowdAvoider.domain.Event;
 @Repository
 public interface EventRepository extends CrudRepository<Event, Integer> {
 
-    
+
 
 }
