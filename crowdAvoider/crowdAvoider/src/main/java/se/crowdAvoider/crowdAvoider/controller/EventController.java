@@ -14,30 +14,21 @@ import java.util.List;
 
 @Controller
 public class EventController {
+    List<Event> events = new ArrayList<>();
 
     @PostMapping("/result")
-    @ResponseBody
-    public String updateEventDB(@RequestBody String jsonobj) throws IOException {
+    public String updateEventDB(@RequestBody String jsonobj, Model model) throws IOException {
 
         System.out.println("Det här är objektet");
         System.out.println(jsonobj.toString());
 
-        List<Event> events = new ArrayList<>();
+
         ObjectMapper objectMapper = new ObjectMapper();
         Event event = objectMapper.readValue(jsonobj, Event.class);
         events.add(event);
 
-        System.out.println(events.get(1).getAdress());
-//
-
-
-//        List<Event> listEvent = objectMapper.readValue(jsonobj, new TypeReference<List<Event>>(){});
-//
-//        for (Event event : listEvent) {
-//            System.out.println(event.getAdress());
-//        }
-
-        return "index";
+        model.addAttribute("events", events);
+        return "result";
     }
 
 }

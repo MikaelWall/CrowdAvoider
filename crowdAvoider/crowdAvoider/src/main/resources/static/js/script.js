@@ -36,7 +36,7 @@ $(document).ready(function () {
                         console.log(oneEvent);
                        // eventList.push(oneEvent);
                         $.ajax({
-                            url:"/result",
+                            url:"/index.html",
                             type:"POST",
                             data:JSON.stringify(oneEvent),
                             contentType:"application/json; charset=utf-8",
