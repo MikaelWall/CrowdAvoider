@@ -22,8 +22,10 @@ public class Event {
 //    @Column(name = "EVENT_DATE")
    private String date;
 
+   public Event() {
+   }
 
-public Event(String name, String adress, String date) {
+   public Event(String name, String adress, String date) {
 this.name = name;
 this.adress = adress;
 this.date = date;

@@ -12,7 +12,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: "GET",
-            url: "https://app.ticketmaster.com/discovery/v2/events.json?size=100&apikey=n3CEf5CvEDPHCiKWf9blSDSGfqmglhsS&city=" + city, // + "&localDate=" + date,
+            url: "https://app.ticketmaster.com/discovery/v2/events.json?size=10&apikey=nyfzMbJxUdCJucKN6tUbJLAcABybAJC6&city=" + city, // + "&localDate=" + date,
             async: true,
             dataType: "json",
             headers: {
@@ -34,7 +34,17 @@ $(document).ready(function () {
                         }
                         console.log("det här är objektet")
                         console.log(oneEvent);
-                        eventList.push(oneEvent);
+                       // eventList.push(oneEvent);
+                        $.ajax({
+                            url:"/result",
+                            type:"POST",
+                            data:JSON.stringify(oneEvent),
+                            contentType:"application/json; charset=utf-8",
+                            dataType:"json",
+                            success: function(){
+                              console.log("hej")
+                            }
+                          })
 
                     }
 
@@ -43,16 +53,7 @@ $(document).ready(function () {
                 console.log(eventList);
                
                // $.post("/result", JSON.stringify({eventList}),  function(){console.log("Hej")})
-               $.ajax({
-                url:"/result",
-                type:"POST",
-                data:JSON.stringify({eventList}),
-                contentType:"application/json; charset=utf-8",
-                dataType:"json",
-                success: function(){
-                  console.log("hej")
-                }
-              })
+              
 
             },
             error: function (xhr, status, err) {}
