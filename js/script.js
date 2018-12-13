@@ -1,3 +1,6 @@
+var mapLocation;
+var eventName;
+
 $(document).ready(function () {
 
                 $(".readyBtn").click(function () {
@@ -20,12 +23,10 @@ $(document).ready(function () {
 
                                 if (date == (json._embedded.events[i].dates.start.localDate)) {
                                     console.log("Hittade resultat")
-                                    
+                                    eventName = json._embedded.events[0].name
+                                    mapLocation = json._embedded.events[0]._embedded.venues[0].location;
                                 }
                             }
-                            //var lon = json._embedded.events[0]._embedded.venues[0].location.latitude;
-                            var obj = json._embedded.events[0]._embedded.venues[0];
-                            console.log (obj.location);
                         },
                         error: function (xhr, status, err) {
                         }
