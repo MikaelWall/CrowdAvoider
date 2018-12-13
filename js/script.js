@@ -23,6 +23,8 @@ $(document).ready(function () {
 
                                 if (date == (json._embedded.events[i].dates.start.localDate)) {
                                     console.log("Hittade resultat")
+
+                                    //Hårdkodar eventName och mapLocation till första eventet i ajax-listan
                                     eventName = json._embedded.events[0].name
                                     mapLocation = json._embedded.events[0]._embedded.venues[0].location;
                                 }

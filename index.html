@@ -55,11 +55,10 @@
     <div id="map">
         <script>
             $(".showMapBtn").click(function initMap() {
-                //destination är där vi kommer att lägga in våra koordinater.
+                //kopplingen här är till valt event, i detta fallet hårdkodat till 0 i arrayn från ajax. (alltså första eventet i listan)
                 var lat = mapLocation.latitude;
                 var lon = mapLocation.longitude;
-                //var lat = 50;
-                //var lon = 50;
+            
                 var destination = new google.maps.LatLng(lat, lon);
                 var map = new google.maps.Map(document.getElementById('map'), {
 
